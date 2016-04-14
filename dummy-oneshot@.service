@@ -1,0 +1,23 @@
+[Unit]
+Description=Dummy Oneshot %i
+
+[Service]
+Type=oneshot
+User=grosscol
+Group=grosscol
+
+WorkingDirectory=/tmp
+PIDFile=/tmp/du-one.pid
+
+Environment="RAILS_ENV=production"
+Environment="RBENV_ROOT=/l/local/rbenv"
+Environment="UMRDR_HOST=staging.deepblue.lib.umich.edu"
+Environment="MINER_FILE=/var/staging.deepblue/minter-state"
+Environment="REDIS_NS=dbdstage"
+Environment="MYVAR=/path/to/stuff"
+
+ExecStart=/home/grosscol/.rbenv/shims/ruby /home/grosscol/workspace/sysd_r/dummy-oneshot.rb %i
+TimeoutStartSec=20
+
+[Install]
+WantedBy=multi-user.target

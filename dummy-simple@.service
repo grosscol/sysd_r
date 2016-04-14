@@ -1,0 +1,24 @@
+[Unit]
+Description=Dummy Simple %i
+
+[Service]
+Type=simple
+User=grosscol
+Group=grosscol
+
+# Override in app-umrdr@instance.service.d/instance.conf
+WorkingDirectory=/tmp/changeme
+PIDFile=/tmp/changeme/pidfile.pid
+
+# Provide in app-umrdr@instance.service.d/instance.conf
+Environment="RAILS_ENV=production"
+Environment="RBENV_ROOT=/l/local/rbenv"
+Environment="UMRDR_HOST=staging.deepblue.lib.umich.edu"
+Environment="MINER_FILE=/var/staging.deepblue/minter-state"
+Environment="REDIS_NS=dbdstage"
+
+ExecStart=/home/grosscol/.rbenv/shims/ruby /home/grosscol/workspace/sysd_r/dummy-simple.rb %i
+TimeoutStartSec=20
+
+[Install]
+WantedBy=multi-user.target

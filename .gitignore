@@ -10,6 +10,9 @@
 /test/version_tmp/
 /tmp/
 
+## generated text files:
+obs*.txt
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history

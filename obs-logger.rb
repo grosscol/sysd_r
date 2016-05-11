@@ -10,7 +10,7 @@ class ObsLogger
       ARGV.each{|arg| ofile << "  #{arg}\n"}
 
       ofile << "Environment:\n"
-      ENV.each{|e| ofile << e}
+      ENV.each{|e| ofile << "  #{e[0]}=#{e[1]}\n" }
 
       ofile.flush
     end

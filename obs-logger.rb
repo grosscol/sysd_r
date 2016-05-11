@@ -9,9 +9,8 @@ class ObsLogger
       ofile << "Arguements:\n"
       ARGV.each{|arg| ofile << "  #{arg}\n"}
 
-      env_vars = ['RAILS_ENV', 'RBENV_ROOT', 'UMRDR_HOST','MINTER_FILE','REDIS_NS']
       ofile << "Environment:\n"
-      env_vars.each { |e| ofile << "  #{e}=#{ENV[e]}\n" }
+      ENV.each{|e| ofile << e}
 
       ofile.flush
     end

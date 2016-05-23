@@ -9,3 +9,5 @@ Either use one of the dummy services or change the service you want to test to e
 `ExecStart=/home/grosscol/.rbenv/shims/ruby /home/grosscol/workspace/sysd_r/dummy-oneshot.rb %i` points to your ruby and `dummy-oneshot.rb` in wherever you cloned this repo.
 3. Tell systemd to start the service: `systemctl dummy-oneshot@foo.service`
 4. Check out the observations file in sysd_r/
+
+Further investingation or poking around can be done by modifying the ruby script that gets run by the service `dummy-oneshot.rb`.
